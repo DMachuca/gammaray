@@ -59,7 +59,19 @@ void Application::setGSLibPathSetting(const QString path)
 void Application::setGhostscriptPathSetting(const QString path)
 {
     QSettings qs;
-    qs.setValue("gspath", path);
+	qs.setValue("gspath", path);
+}
+
+QString Application::getPythonPathSetting()
+{
+	QSettings qs;
+	return qs.value("pythonpath").toString();
+}
+
+void Application::setPythonPathSetting(const QString path)
+{
+	QSettings qs;
+	qs.setValue("pythonpath", path);
 }
 
 int Application::getMaxGridCellCountFor3DVisualizationSetting()

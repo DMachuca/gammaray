@@ -18,7 +18,8 @@ public:
 public slots:
     void showGSLibPathSearch();
     void showGSPathSearch();
-    void accept();
+	void showPythonPathSearch();
+	void accept();
 
 private:
     Ui::SetupDialog *ui;

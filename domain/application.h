@@ -74,6 +74,12 @@ public:
     void setGhostscriptPathSetting(const QString path);
     //!@}
 
+	//!@{
+	//! Reads and saves the Path installation path from OS registry.
+	QString getPythonPathSetting();
+	void setPythonPathSetting(const QString path);
+	//!@}
+
     //!@{
     //! Reads and saves the maximum number of cells in a single grid for the 3D viewer.
     int getMaxGridCellCountFor3DVisualizationSetting();
