@@ -77,6 +77,7 @@
 #include "imagejockey/widgets/ijgridviewerwidget.h"
 #include "imagejockey/vardecomp/variographicdecompositiondialog.h"
 #include "imagejockey/svd/svdfactor.h"
+#include "pyplugins/pythonplugins.h"
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -167,6 +168,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //enable drop from drag-n-drop gestures
     setAcceptDrops( true );
+
+	//enables/disables the plug-in menu
+	updatePluginsMenuState();
+
+	//Displays Python info
+	Application::instance()->logInfo("Python home configured: " + Application::instance()->getPythonPathSetting() );
+	Application::instance()->logInfo("Python version: " + PythonPlugins::getPythonVersion() );
 
     //show the 3D view widget (if user allowed it)
     if( ! Util::programWasCalledWithCommandLineArgument("-no3d") )
@@ -386,6 +394,14 @@ void MainWindow::refreshTreeStyle()
                           image: url(:icons32/bopen32); \
                   }");
 
+}
+
+void MainWindow::updatePluginsMenuState()
+{
+	bool testResult = PythonPlugins::test();
+	if( ! testResult)
+		Application::instance()->logError( "Plug-ins disabled." );
+	ui->menuPlug_ins->setEnabled( testResult );
 }
 
 
@@ -2646,6 +2662,7 @@ void MainWindow::showSetup()
 {
     SetupDialog sd(this);
     sd.exec();
+	updatePluginsMenuState();
 }
 
 void MainWindow::newProject()

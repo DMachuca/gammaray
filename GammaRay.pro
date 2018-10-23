@@ -229,7 +229,8 @@ SOURCES += main.cpp\
     dialogs/variograminputdialog.cpp \
     geometry/hexahedron.cpp \
     geometry/pyramid.cpp \
-    geometry/tetrahedron.cpp
+    geometry/tetrahedron.cpp \
+    pyplugins/pythonplugins.cpp
 
 HEADERS  += mainwindow.h \
     domain/project.h \
@@ -437,7 +438,8 @@ HEADERS  += mainwindow.h \
     dialogs/variograminputdialog.h \
     geometry/hexahedron.h \
     geometry/pyramid.h \
-    geometry/tetrahedron.h
+    geometry/tetrahedron.h \
+    pyplugins/pythonplugins.h
 
 
 FORMS    += mainwindow.ui \

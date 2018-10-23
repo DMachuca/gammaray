@@ -96,6 +96,9 @@ private:
     //updates project tree style sheet (updates visualization)
     //must be called upon changes in project objects hierarchy
     void refreshTreeStyle();
+	//enables/disables the Python plug-ins main menu depending on
+	//Python availability and/or sanity.
+	void updatePluginsMenuState( );
     //project tree context menu
     QMenu *_projectContextMenu;
     //project header context menu
